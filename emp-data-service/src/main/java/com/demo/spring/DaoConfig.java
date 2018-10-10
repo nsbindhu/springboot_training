@@ -1,4 +1,4 @@
-package com.demo.boot;
+package com.demo.spring;
 
 import javax.persistence.EntityManagerFactory;
 
@@ -13,10 +13,10 @@ import org.springframework.orm.jpa.vendor.Database;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-@Configuration
+/*@Configuration
 @ComponentScan(basePackages="com.demo.spring")
 @EnableTransactionManagement
-@EnableJpaRepositories(basePackages="com.demo.spring.repo")
+@EnableJpaRepositories(basePackages="com.demo.spring.repo")*/
 public class DaoConfig {
 	@Bean
 	public DriverManagerDataSource createDataSource() {
@@ -28,7 +28,7 @@ public class DaoConfig {
 		return ds;
 	}
 	
-	@Bean
+	/*@Bean
 	public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
 		
 		LocalContainerEntityManagerFactoryBean emfb = new LocalContainerEntityManagerFactoryBean();
@@ -51,5 +51,5 @@ public class DaoConfig {
 		txm.setEntityManagerFactory(emf);
 		return txm;
 		
-	}
+	}*/
 }
