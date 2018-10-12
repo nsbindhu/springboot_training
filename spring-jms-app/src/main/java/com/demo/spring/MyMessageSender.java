@@ -14,11 +14,11 @@ public class MyMessageSender {
 	public static void main(String[] args) {
 		
 		ApplicationContext ctx = new AnnotationConfigApplicationContext(JmsConfig.class);
-		JmsTemplate jt = ctx.getBean(JmsTemplate.class);
+		JmsTemplate jt = (JmsTemplate) ctx.getBean("jtPubSub");
 		
 		for(int i=0;i<10;i++) {
 			int count = i;
-			jt.send("testQueue", new MessageCreator() {
+			jt.send("demoTopic", new MessageCreator() {
 				
 				@Override
 				public Message createMessage(Session session) throws JMSException {

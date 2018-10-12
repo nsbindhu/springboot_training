@@ -27,4 +27,13 @@ public class JmsConfig {
 		jt.setConnectionFactory(connectionFactory());
 		return jt;
 	}
+	
+	@Bean
+	public JmsTemplate jtPubSub() {
+		
+		JmsTemplate jt = new  JmsTemplate();
+		jt.setConnectionFactory(connectionFactory());
+		jt.setPubSubDomain(true);
+		return jt;
+	}
 }
