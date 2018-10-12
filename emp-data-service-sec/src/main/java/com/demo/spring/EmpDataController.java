@@ -15,14 +15,15 @@ import org.springframework.web.bind.annotation.RestController;
 import com.demo.spring.entity.Employee;
 import com.demo.spring.repo.EmpRepository;
 
-import io.swagger.annotations.Api;
-
 @RestController
-@Api
 public class EmpDataController {
 	@Autowired
 	private EmpRepository repo;
 	
+	@RequestMapping(path="/info",method=RequestMethod.GET,produces=MediaType.TEXT_PLAIN_VALUE)
+	public String info() {
+		return "This is a sample REST service";
+	}
 	@RequestMapping(path="/emp/{id}",method=RequestMethod.GET,produces="application/json")
 	public Employee findEmpById(@PathVariable("id") int id) {
 		Optional<Employee> e = repo.findById(id);
